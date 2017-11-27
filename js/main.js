@@ -14,8 +14,13 @@ jQuery(document).ready(function ($) {
     });
 
     function writeUserData(cid) {
-        var time = new Date().toLocaleString();
-        firebase.database().ref('times/' + time).set({
+        var d = new Date();
+        var year = d.getFullYear() + "/";
+        var month = (d.getMonth() + 1) + "/";
+        var day = d.getDate() + "/";
+        var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        console.log(time.slice(0,))
+        firebase.database().ref('times/' + year + month + day + time).set({
             course: cid
         });
     }
